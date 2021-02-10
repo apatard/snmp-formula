@@ -34,9 +34,10 @@ Debian:
 Suse:
     pkg: net-snmp
     pkgutils: net-snmp
-    options: /etc/sysconfig/net-snmp
+    options: /etc/sysconfig/snmpd
+    optionstrap: /etc/sysconfig/snmptrapd
     sourceoptions: salt://snmp/files/snmpd.options.suse
-    sourceoptionstrap: salt://snmp/files/snmptrapd.options.suse
+    sourceoptionstrap: salt://snmp/files/snmptrapd.options
 Gentoo:
     pkg: net-analyzer/net-snmp
     configdefault: /etc/conf.d/snmpd
