@@ -7,6 +7,7 @@
 #
 # snmptrapd command line options
 # OPTIONS="-Lsd -p /var/run/snmptrapd.pid"
-{% if salt['pillar.get']('snmp:optionstrap', '') %}
-OPTIONS={{ salt['pillar.get']('snmp:optionstrap', '') }}
-{% endif %}
+{%- from "snmp/map.jinja" import snmp with context %}
+{%- if snmp.trapdargs %}
+OPTIONS={{ snmp.trapdargs }}
+{%- endif %}
