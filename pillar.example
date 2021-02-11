@@ -4,6 +4,13 @@ snmp:
   #   trapdargs: '-Lsd -p /var/run/snmptrapd.pid'
   #   trapdrun: 'no' # Needs "'", otherwise it'll be a bool
 
+  conftrap:
+    settings:
+      authcommunity: "log,execute,net public"
+    traphandles:
+    - oid: "SNMPv2-MIB::coldStart"
+      action: "touch /var/tmp/coldstart"
+
   conf:
     location: 'Unknown (add saltstack pillar)'
     syscontact: 'Root <root@localhost> (add saltstack pillar)'
