@@ -102,11 +102,16 @@ snmp:
         # authproto: 'SHA'
         # privproto: 'AES'
         # privpassphrase: 'v3privpass'
+    disman:
+      user: myv3user
+      monitors:
+      - "-r 600s machineTooBusy hrProcessorLoad > 90"
     # misc snmpd.conf settings
     settings:
       # agentAddress: 'udp:161,udp6:[::1]:161'
       sysServices: 72
       master: ['agentx']
+      trap2sink: "127.0.0.1 public"
     # custom MIB files
     # mibs:
     #     <MIB name>: salt://<path to MIB.txt>
